@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-dark-bg: #0f0f1e;
+    --color-dark-bg-secondary: #1a1a2e;
+    --color-dark-bg-tertiary: #16213e;
+    --color-neon-primary: #00ff88;
+    --color-neon-secondary: #00d4ff;
+    --color-neon-danger: #ff0055;
+    --color-neon-warning: #ffaa00;
+    --color-text-primary: #e0e0ff;
+    --color-text-secondary: #a0a0c0;
+  }
+
+  body {
+    @apply bg-[--color-dark-bg] text-[--color-text-primary] font-sans overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    @apply shadow-lg;
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .neon-border {
+    @apply border-2;
+    border-image: linear-gradient(135deg, var(--color-neon-primary), var(--color-neon-secondary)) 1;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-[--color-neon-primary] to-[--color-neon-secondary] bg-clip-text text-transparent;
+  }
+
+  .card-glass {
+    @apply backdrop-blur-md bg-[--color-dark-bg-secondary] bg-opacity-50 border border-[--color-neon-primary] border-opacity-20 rounded-lg;
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-neon {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px var(--color-neon-primary));
+  }
+  50% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 20px var(--color-neon-primary));
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
