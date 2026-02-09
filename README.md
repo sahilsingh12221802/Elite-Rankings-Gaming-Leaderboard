@@ -8,6 +8,11 @@
 
 ---
 
+> [!NOTE]
+> There is a minor bug where live updates only appear after reloading the page.
+
+---
+
 ## 📦 Project Structure
 
 ```
