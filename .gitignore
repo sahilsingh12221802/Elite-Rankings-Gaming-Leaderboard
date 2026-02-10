@@ -102,3 +102,8 @@ coverage/
 tmp/
 temp/
 *.tmp
+# New Relic (sensitive data - license keys)
+newrelic.ini
+backend/newrelic.ini
+frontend/newrelic.ini
+*.newrelic

@@ -295,11 +295,52 @@ WS /ws/leaderboard/{user_id}
 - SQL injection prevention (parameterized queries)
 - Rate limiting ready
 
-### ✅ Monitoring
-- New Relic integration
-- Structured logging
-- Health check endpoints
-- Detailed metrics
+### ✅ Monitoring with New Relic
+
+**Real-time Performance Monitoring & Analytics:**
+
+#### Backend Monitoring (APM)
+- **Application Performance Monitoring (APM)** for FastAPI backend
+- Real-time request/response metrics
+- Database query performance tracking
+- Error tracking and alerting
+- Distributed tracing for async operations
+- Custom events and transactions
+
+#### Frontend Monitoring (Browser)
+- **Browser Real User Monitoring (RUM)** for React/TypeScript frontend
+- Page load performance metrics
+- User interaction tracking
+- JavaScript error monitoring
+- Session recording support
+
+#### Setup Instructions
+1. Get your New Relic license key: https://one.newrelic.com/api-keys
+2. Backend: Copy the **Ingest License Key** (40 characters)
+3. Create `backend/newrelic.ini` (use `newrelic.ini.example` as template)
+4. Frontend: Add browser monitoring snippet to `frontend/index.html`
+5. Restart services to start monitoring
+
+#### Performance Dashboard
+Dashboard available at: https://one.newrelic.com/apm
+
+**Example Metrics:**
+- Average Response Time: 5-20ms
+- Throughput: 100+ requests/sec
+- Error Rate: <0.1%
+- Database Query Performance: See [Performance Benchmarks](#-performance-benchmarks)
+
+---
+
+## 📊 Performance Dashboard Screenshots
+
+### Backend APM Dashboard
+![Backend Performance Monitoring](./docs/screenshots/backend-apm-dashboard.png)
+*Real-time monitoring of FastAPI application performance, response times, and error rates*
+
+### New Relic Browser Dashboard
+![Frontend Browser Monitoring](./docs/screenshots/browser-dashboard.png)
+*End-to-end monitoring of React frontend with real user monitoring (RUM) data*
 
 ---
 

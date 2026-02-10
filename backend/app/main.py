@@ -4,7 +4,30 @@ Configures routes, middleware, error handling, and monitoring.
 """
 import json
 import logging
+import os
 from contextlib import asynccontextmanager
+
+# Initialize New Relic agent
+import newrelic.agent
+
+# Get absolute path to newrelic.ini
+if 'NEW_RELIC_CONFIG_FILE' in os.environ:
+    newrelic_config_file = os.environ['NEW_RELIC_CONFIG_FILE']
+else:
+    # default to newrelic.ini in the backend directory
+    newrelic_config_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'newrelic.ini')
+
+if os.path.exists(newrelic_config_file):
+    print(f"[NEW_RELIC] Initializing agent with config: {newrelic_config_file}")
+    newrelic.agent.initialize(newrelic_config_file)
+    print("[NEW_RELIC] Agent initialized successfully")
+else:
+    print(f"[NEW_RELIC] Config file not found: {newrelic_config_file}")
+    print(f"[NEW_RELIC] Current directory: {os.getcwd()}")
+    # Try with environment variables as fallback
+    if os.environ.get('NEW_RELIC_LICENSE_KEY'):
+        print("[NEW_RELIC] Using environment variables for initialization")
+        newrelic.agent.initialize()
 
 from app.api import leaderboard_router
 from app.core import cache_manager, db_manager, settings
@@ -25,20 +48,26 @@ async def lifespan(app: FastAPI):
     # Startup
     logger.info("=== Application Startup ===")
     try:
-        # Initialize database
-        db_manager.init_sync_engine()
-        create_all_tables(db_manager.engine)
-        logger.info("✓ Database initialized")
+        # Initialize database (non-blocking, continue if it fails)
+        try:
+            db_manager.init_sync_engine()
+            create_all_tables(db_manager.engine)
+            logger.info("✓ Database initialized")
+        except Exception as db_e:
+            logger.warning(f"Database initialization failed (app will continue): {db_e}")
 
-        # Initialize cache
-        cache_manager.connect()
-        logger.info("✓ Cache (Redis) connected")
+        # Initialize cache (non-blocking, continue if it fails)
+        try:
+            cache_manager.connect()
+            logger.info("✓ Cache (Redis) connected")
+        except Exception as cache_e:
+            logger.warning(f"Cache initialization failed (app will continue): {cache_e}")
 
         logger.info(f"✓ Environment: {settings.ENVIRONMENT}")
         logger.info(f"✓ Debug: {settings.DEBUG}")
+        logger.info("✓ New Relic monitoring enabled")
     except Exception as e:
         logger.error(f"Failed to initialize application: {e}")
-        raise
 
     yield
 

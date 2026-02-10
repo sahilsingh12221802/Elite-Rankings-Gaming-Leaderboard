@@ -27,8 +27,14 @@ class DatabaseManager:
     def init_sync_engine(self):
         """Initialize synchronous database engine with connection pooling."""
         if self.engine is None:
+            # Use psycopg driver (don't specify driver explicitly, sqlalchemy will auto-detect)
+            db_url = settings.DATABASE_URL
+            # Replace postgresql:// with postgresql+psycopg:// if needed
+            if "postgresql://" in db_url and "postgresql+psycopg" not in db_url:
+                db_url = db_url.replace("postgresql://", "postgresql+psycopg://")
+            
             self.engine = create_engine(
-                settings.DATABASE_URL,
+                db_url,
                 poolclass=QueuePool,
                 pool_size=settings.DB_POOL_SIZE,
                 max_overflow=10,

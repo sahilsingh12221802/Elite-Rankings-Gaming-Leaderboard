@@ -1,0 +1,10 @@
+[newrelic]
+# Get your license key from: https://one.newrelic.com/api-keys
+# Select: Ingest - License (NOT User API Key)
+# Key should be 40 characters
+license_key = YOUR_40_CHAR_LICENSE_KEY_HERE
+
+app_name = GoComet-Backend
+monitor_mode = true
+log_level = info
+distributed_tracing.enabled = true
