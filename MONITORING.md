@@ -1,4 +1,4 @@
-# 📊 New Relic Performance Monitoring Setup
+# New Relic Performance Monitoring Setup
 
 This guide walks you through setting up real-time performance monitoring for both the backend API and frontend React application using New Relic.
 
@@ -10,7 +10,7 @@ This guide walks you through setting up real-time performance monitoring for bot
 
 ---
 
-## 🔧 Backend Setup (FastAPI with New Relic APM)
+## Backend Setup (FastAPI with New Relic APM)
 
 ### Step 1: Get Your License Key
 
@@ -31,7 +31,6 @@ log_level = info
 distributed_tracing.enabled = true
 ```
 
-⚠️ **Security:** Never commit this file to git! It's already in `.gitignore`
 
 ### Step 3: Start Backend with Monitoring
 
@@ -60,7 +59,7 @@ This generates 60 requests to create monitoring data.
 
 ---
 
-## 🌐 Frontend Setup (React Browser Monitoring)
+## Frontend Setup (React Browser Monitoring)
 
 ### Step 1: Get Browser License Key
 
@@ -110,7 +109,7 @@ npm preview  # or deploy to production
 
 ---
 
-## 📈 Creating Custom Dashboards
+## Creating Custom Dashboards
 
 ### NRQL Query Examples
 
@@ -149,30 +148,10 @@ TIMESERIES
    - Customize title and colors
    - Click **Save**
 
----
-
-## 🔐 Security Best Practices
-
-### Never Commit Sensitive Data
-
-✅ **These files are gitignored:**
-- `backend/newrelic.ini` - Contains license key
-- `.env` - Environment variables
-- `.env.local` - Local overrides
-
-⚠️ **If accidentally committed:**
-```bash
-# Remove from git history
-git rm --cached backend/newrelic.ini backend/.env*
-git commit -m "Remove sensitive files from history"
-
-# Rotate your New Relic license keys
-# Go to: https://one.newrelic.com/apiAccess
-```
 
 ---
 
-## 📊 Performance Benchmarks
+## Performance Benchmarks
 
 ### Expected Metrics
 
@@ -187,7 +166,7 @@ git commit -m "Remove sensitive files from history"
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Backend Not Showing in APM
 
@@ -212,7 +191,7 @@ git commit -m "Remove sensitive files from history"
 
 ---
 
-## 📚 Resources
+## Resources
 
 - **New Relic Documentation:** https://docs.newrelic.com/
 - **Python Agent Docs:** https://docs.newrelic.com/docs/agents/python-agent/
@@ -221,7 +200,7 @@ git commit -m "Remove sensitive files from history"
 
 ---
 
-## 📞 Support
+## Support
 
 For issues or questions:
 1. Check New Relic docs
