@@ -4,6 +4,7 @@
 
 - **[Architecture Overview](./ARCHITECTURE.md)** - System design, database schema, optimization strategies
 - **[Setup & Running](./SETUP.md)** - Getting started, configuration, troubleshooting
+- - **[Monitoring](./MONITORING.md)** - Helping and understanding the workflow of monitoring
 - **[API Reference](#api-reference)** - Endpoint documentation
 
 ---
