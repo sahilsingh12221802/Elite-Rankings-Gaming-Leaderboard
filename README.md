@@ -13,7 +13,7 @@
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 GoComet/
@@ -89,7 +89,7 @@ GoComet/
 
 ---
 
-## 🔌 API Reference
+## API Reference
 
 ### Base URL
 - **Development**: `http://localhost:8000`
@@ -263,39 +263,39 @@ WS /ws/leaderboard/{user_id}
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
-### ✅ Performance
+### Performance
 - **Top-100 lookup**: <5ms
 - **User rank lookup**: <1ms
 - **Score submission**: 20-50ms (including broadcasting)
 - **WebSocket broadcast**: <10ms to 10,000 concurrent clients
 
-### ✅ Scalability
+### Scalability
 - Supports **1M+ active players**
 - Handles **10K+ concurrent WebSocket connections**
 - Database connection pooling
 - Redis caching with TTL-based invalidation
 
-### ✅ Real-Time
+### Real-Time
 - Instant score submission feedback
 - Live leaderboard updates via WebSocket
 - Push notifications to all connected clients
 - No polling required
 
-### ✅ Reliability
+### Reliability
 - ACID transactions with row-level locking
 - Comprehensive error handling
 - Health checks on all services
 - Automatic connection recovery
 
-### ✅ Security
+### Security
 - Input validation on all endpoints
 - CORS protection
 - SQL injection prevention (parameterized queries)
 - Rate limiting ready
 
-### ✅ Monitoring with New Relic
+### Monitoring with New Relic
 
 **Real-time Performance Monitoring & Analytics:**
 
@@ -332,19 +332,21 @@ Dashboard available at: https://one.newrelic.com/apm
 
 ---
 
-## 📊 Performance Dashboard Screenshots
+## Performance Dashboard Screenshots
 
 ### Backend APM Dashboard
-![Backend Performance Monitoring](./docs/screenshots/backend-apm-dashboard.png)
+<img width="1440" height="778" alt="Screenshot 2026-02-10 at 9 34 56 PM" src="https://github.com/user-attachments/assets/f4d8a11c-4319-477d-9030-185ca03f8942" />
+
 *Real-time monitoring of FastAPI application performance, response times, and error rates*
 
 ### New Relic Browser Dashboard
-![Frontend Browser Monitoring](./docs/screenshots/browser-dashboard.png)
-*End-to-end monitoring of React frontend with real user monitoring (RUM) data*
+<img width="1440" height="779" alt="Screenshot 2026-02-10 at 9 35 13 PM" src="https://github.com/user-attachments/assets/0d511d31-2245-4c56-bffe-e61f813f356b" />
+
+*End-to-end monitoring of Dashboard*
 
 ---
 
-## 🎨 UI/UX Features
+## UI/UX Features
 
 ### Dark Gaming Theme
 - Deep dark background (`#0f0f1e`)
@@ -372,7 +374,7 @@ Dashboard available at: https://one.newrelic.com/apm
 
 ---
 
-## 📊 Database Optimization
+## Database Optimization
 
 ### Indexing Strategy
 
@@ -412,7 +414,7 @@ WHERE user_id = 123;
 
 ---
 
-## 🔐 Concurrency Handling
+## Concurrency Handling
 
 ### Row-Level Locking
 ```python
@@ -440,7 +442,7 @@ await cache_manager.delete_pattern("user_rank:*")
 
 ---
 
-## 📈 Performance Benchmarks
+## Performance Benchmarks
 
 ### Query Performance
 | Query | With Index | Without Index | Improvement |
@@ -465,7 +467,7 @@ CPU Usage: <5% per 1000 connections
 
 ---
 
-## 🚀 Production Deployment
+## Production Deployment
 
 ### Minimum Requirements
 - **CPU**: 2 cores
@@ -494,14 +496,14 @@ Redis Cluster (3 nodes with replication)
 
 ---
 
-## 🧪 Testing Coverage
+## Testing Coverage
 
 ### Backend Tests
-- ✅ Score submission
-- ✅ Ranking calculation
-- ✅ Concurrent submissions (race conditions)
-- ✅ Cache operations
-- ✅ WebSocket connections
+- Score submission
+- Ranking calculation
+- Concurrent submissions (race conditions)
+- Cache operations
+- WebSocket connections
 
 ### Frontend Tests
 - Component rendering
@@ -516,7 +518,7 @@ pytest tests/ -v --cov=app
 
 ---
 
-## 💡 Key Decisions & Rationale
+## Key Decisions & Rationale
 
 ### Why PostgreSQL?
 - ACID compliance
@@ -550,7 +552,7 @@ pytest tests/ -v --cov=app
 
 ---
 
-## 📞 Support
+## Support
 
 ### Debugging
 ```bash
@@ -580,35 +582,35 @@ docker stats
 
 ---
 
-## 🎓 Learning Outcomes
+## Learning Outcomes
 
 After studying this codebase, you'll understand:
 
-1. ✅ **Production-Grade Architecture**
+1. **Production-Grade Architecture**
    - Proper project structure
    - Error handling patterns
    - Configuration management
 
-2. ✅ **High-Performance Systems**
+2. **High-Performance Systems**
    - Database optimization
    - Caching strategies
    - Query performance tuning
 
-3. ✅ **Real-Time Applications**
+3. **Real-Time Applications**
    - WebSocket implementation
    - Message broadcasting
    - State synchronization
 
-4. ✅ **Modern Frontend Development**
+4. **Modern Frontend Development**
    - React component architecture
    - State management with Zustand
    - Animation with Framer Motion
 
-5. ✅ **DevOps Practices**
+5. **DevOps Practices**
    - Docker containerization
    - Docker Compose orchestration
    - Health checks and monitoring
 
 ---
 
-**Build something amazing! 🚀**
+**Build something amazing! **
